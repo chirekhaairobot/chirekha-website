@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>ChiRekha — Where AI Meets Soul</title>
+
+<meta name="description" content="ChiRekha — Where AI Meets Soul. Professional AI writing and astrology-inspired content by Chintan Raval. Fiverr-based services in creative writing, data research, and emotional intelligence-driven content." />
+<meta name="keywords" content="AI writing, astrology, jyotish, affirmations, soulful AI, spiritual guide, Chintan Raval, ChiRekha, emotional intelligence, content creation, fiverr, gemini api" />
+<meta name="author" content="Chintan Raval" />
+
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&family=Raleway:wght@700;900&display=swap" rel="stylesheet" />
+
+<style>
+:root {
+  --violet: #a64ac9;
+  --pink: #ff6fb5;
+  --gold: #ffd369;
+  --deep-indigo: #1a0033;
+  --mid-violet: #4b0082;
+}
+
+/* ---------- GLOBAL ---------- */
+body {
+  font-family: 'Open Sans', sans-serif;
+  background-color: #f7f3ff;
+  color: #1f2937;
+}
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Raleway', sans-serif;
+  color: var(--mid-violet);
+}
+.page-content {
+  display: none;
+  animation: fadeIn 0.5s ease-in-out;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ---------- NAVIGATION ---------- */
+.nav-link {
+  transition: all 0.3s ease;
+  border-bottom: 2px solid transparent;
+  color: var(--mid-violet);
+  padding: 0.5rem 0.75rem;
+  font-weight: 600;
+}
+.nav-link:hover {
+    color: var(--pink);
+}
+.nav-link.active {
+  border-bottom-color: var(--pink);
+  color: var(--pink);
+  font-weight: 700;
+}
+
+/* ---------- HERO SECTION ---------- */
+.hero-background {
+  background: linear-gradient(135deg, var(--deep-indigo) 0%, var(--mid-violet) 50%, #6f00b8 100%);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+  color: white;
+  border-radius: 2rem;
+  overflow: hidden;
+  position: relative;
+  padding: 4rem 2rem;
+}
+.hero-background::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-image: url('https://i.imgur.com/yvDfY9Y.png');
+  background-size: 200px;
+  background-repeat: repeat;
+  opacity: 0.05;
+  z-index: -1;
+}
+
+/* ---------- LOGO ---------- */
+.header-logo-img { height: 40px; width: auto; }
+.main-logo-img { height: 100px; width: auto; filter: drop-shadow(0 0 15px rgba(255, 211, 105, 0.8)); }
+.footer-logo-img { height: 35px; width: auto; opacity: 0.9; }
+
+/* ---------- CTA BUTTON ---------- */
+.cta-button {
+  background: linear-gradient(90deg, var(--pink) 0%, var(--gold) 100%);
+  color: var(--mid-violet);
+  font-family: 'Raleway', sans-serif;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.75rem 2.5rem;
+  border-radius: 9999px;
+  box-shadow: 0 4px 15px rgba(255, 111, 181, 0.5);
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.cta-button:hover {
+  box-shadow: 0 6px 20px rgba(255, 111, 181, 0.8);
+  transform: scale(1.05);
+  filter: brightness(1.1);
+}
+
+/* ---------- TEXT STYLE ---------- */
+.rose-gold-text {
+  background: linear-gradient(90deg, var(--pink), var(--gold));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+/* ---------- CARD ---------- */
+.card-glow {
+  border-radius: 1.25rem;
+  box-shadow: 0 8px 30px rgba(75, 0, 130, 0.05);
+  border: 1px solid #e0e0e0;
+  transition: all 0.3s ease;
+}
+.card-glow:hover {
+  box-shadow: 0 12px 35px rgba(75, 0, 130, 0.15);
+  transform: translateY(-3px);
+  border-color: var(--pink);
+}
+
+/* ---------- STICKY BUTTON ---------- */
+.fiverr-sticky {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 50;
+}
+
+/* ---------- LLM AFFIRMATION UI STYLES ---------- */
+.llm-button {
+  background-color: var(--violet);
+  color: white;
+  font-weight: 700;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.75rem;
+  transition: background-color 0.3s;
+}
+.llm-button:hover:not(:disabled) {
+  background-color: var(--mid-violet);
+}
+.llm-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+.affirmation-output {
+    min-height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    font-style: italic;
+    border-radius: 1rem;
+    background-color: #fff;
+    border: 3px solid var(--gold);
+    padding: 1rem;
+    text-align: center;
+    color: var(--deep-indigo);
+}
+</style>
+</head>
+
+<body class="flex flex-col min-h-screen">
+
+<!-- HEADER -->
+<header class="bg-white shadow-lg sticky top-0 z-50">
+  <nav class="container mx-auto px-4 py-4 flex flex-col sm:flex-row justify-between items-center">
+    <div class="flex items-center mb-2 sm:mb-0">
+      <img src="https://i.imgur.com/yvDfY9Y.png" alt="ChiRekha Logo" class="header-logo-img mr-3" />
+      <div class="text-center sm:text-left">
+        <span class="text-3xl font-extrabold rose-gold-text font-heading">ChiRekha</span>
+        <p class="text-xs font-bold text-gray-500 -mt-1">Where AI Meets Soul</p>
+      </div>
+    </div>
+    <div class="flex flex-wrap justify-center gap-3 sm:gap-6 mt-4 sm:mt-0">
+      <button class="nav-link active" data-page="page-home">🏠 Home</button>
+      <button class="nav-link" data-page="page-about">🌿 About</button>
+      <button class="nav-link" data-page="page-services">💫 Services</button>
+      <button class="nav-link" data-page="page-affirmations">🌸 Affirmations</button>
+      <button class="nav-link" data-page="page-contact">📩 Contact</button>
+    </div>
+  </nav>
+</header>
+
+<!-- MAIN -->
+<main class="flex-grow container mx-auto px-4 py-10">
+
+<!-- HOME -->
+<section id="page-home" class="page-content" style="display: block;">
+  <div class="text-center hero-background">
+    <img src="https://i.imgur.com/yvDfY9Y.png" alt="ChiRekha Main Logo" class="main-logo-img mx-auto mb-6" />
+    <h1 class="text-5xl font-black mb-4">Welcome to <span class="rose-gold-text">ChiRekha</span></h1>
+    <p class="text-xl text-gray-200 max-w-3xl mx-auto mb-4">Professional AI writing and astrology-inspired brand founded by <strong>Chintan Raval</strong>. Turning emotions, data and insight into meaningful digital content.</p>
+    <p class="text-lg text-gold mb-8">✨ Where technology meets compassion. Where logic meets light.</p>
+    <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-6">
+      <a href="https://www.fiverr.com/your-profile" target="_blank" class="cta-button">Hire Me on Fiverr 🤝</a>
+      <button onclick="showPage('page-contact')" class="bg-transparent border border-white text-white font-bold px-8 py-3 rounded-full shadow-lg hover:bg-white hover:text-deepIndigo transition">Contact 📩</button>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="page-about" class="page-content">
+  <div class="text-center mb-12">
+    <h2 class="text-4xl font-black text-midViolet mb-3">About <span class="rose-gold-text">ChiRekha</span></h2>
+    <p class="text-xl text-gray-600 max-w-3xl mx-auto">ChiRekha represents the harmony between <strong>AI (Chi)</strong> — energy & intelligence, and <strong>Rekha</strong> — destiny & structure. It’s where advanced technology meets human emotion to create inspired outcomes.</p>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="page-services" class="page-content">
+  <div class="text-center mb-12">
+    <h2 class="text-4xl font-black text-midViolet mb-3">Our Services</h2>
+    <p class="text-xl text-gray-600 max-w-4xl mx-auto">Explore ChiRekha’s professional offerings — a blend of intelligence, creativity, and emotion.</p>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+    <div class="bg-white p-8 card-glow border-l-4 border-pink-400">
+      <h3 class="text-2xl font-bold text-midViolet mb-3">✍️ AI Content Writing</h3>
+      <p class="text-gray-600">SEO-optimized blogs, creative copy, and emotionally intelligent articles for your brand or business.</p>
+    </div>
+
+    <div class="bg-white p-8 card-glow border-l-4 border-violet-400">
+      <h3 class="text-2xl font-bold text-midViolet mb-3">📊 Research & Data Support</h3>
+      <p class="text-gray-600">Structured insights and AI-powered summaries that turn data into actionable clarity.</p>
+    </div>
+
+    <div class="bg-white p-8 card-glow border-l-4 border-gold">
+      <h3 class="text-2xl font-bold text-midViolet mb-3">🪶 Brand Copywriting</h3>
+      <p class="text-gray-600">High-vibration content and persuasive brand language designed to connect emotionally with your audience.</p>
+    </div>
+
+    <div class="bg-white p-8 card-glow border-l-4 border-pink-400">
+      <h3 class="text-2xl font-bold text-midViolet mb-3">🔮 Astro-Themed Writing</h3>
+      <p class="text-gray-600">Spiritual or energy-based storytelling, astrology articles and personalized life-path reflections.</p>
+    </div>
+  </div>
+
+  <div class="text-center">
+    <a href="https://www.fiverr.com/your-profile" target="_blank" class="cta-button">Hire on Fiverr 💼</a>
+  </div>
+</section>
+
+<!-- AFFIRMATIONS (NEW SECTION WITH GEMINI API) -->
+<section id="page-affirmations" class="page-content">
+    <div class="text-center mb-12">
+        <h2 class="text-4xl font-black text-midViolet mb-3">Daily Energy Focus <span class="rose-gold-text">with AI</span></h2>
+        <p class="text-xl text-gray-600 max-w-4xl mx-auto font-body">Use the <strong>ChiRekha Soul AI</strong> to instantly generate a personalized affirmation for your current goal or mood.</p>
+    </div>
+
+    <div class="max-w-3xl mx-auto bg-white p-8 card-glow border-t-4 border-gold">
+        <div class="space-y-6">
+            <h3 class="text-2xl font-bold text-midViolet">✨ Personalized Affirmation Generator</h3>
+            
+            <div>
+                <label for="goal-input" class="block text-sm font-medium text-gray-700 mb-2">My Goal / Current Mood (e.g., Confidence, Peace, Success, Healing)</label>
+                <input type="text" id="goal-input" placeholder="e.g., I want to attract more abundance." class="mt-1 block w-full rounded-lg border-gray-300 p-3 border focus:border-pink-400 focus:ring-pink-400" />
+            </div>
+            
+            <div class="pt-4 text-center">
+                <button id="generate-affirmation-btn" class="llm-button flex items-center justify-center mx-auto" onclick="generateAffirmation()">
+                    <span id="btn-text">Generate My Soul Affirmation ✨</span>
+                </button>
+            </div>
+
+            <div class="pt-6">
+                <p class="text-base font-bold text-gray-700 mb-3 text-center">Your ChiRekha Affirmation:</p>
+                <div id="affirmation-output" class="affirmation-output">
+                    Start by entering your goal above and clicking the button.
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- CONTACT -->
+<section id="page-contact" class="page-content">
+  <div class="text-center mb-12">
+    <h2 class="text-4xl font-black text-midViolet mb-3">Get in Touch</h2>
+    <p class="text-xl text-gray-600 max-w-3xl mx-auto">Collaborate with ChiRekha for your AI writing and creative content needs. Location: <strong>Ahmedabad, India</strong>.</p>
+  </div>
+
+  <div class="max-w-xl mx-auto bg-white p-8 card-glow">
+    <form action="#" method="POST" class="space-y-4">
+      <div>
+        <label class="block text-sm font-medium text-gray-700">Name</label>
+        <input type="text" required class="mt-1 block w-full rounded-lg border-gray-300 p-3 border focus:border-pink-400 focus:ring-pink-400" />
+      </div>
+      <div>
+        <label class="block text-sm font-medium text-gray-700">Email</label>
+        <input type="email" required class="mt-1 block w-full rounded-lg border-gray-300 p-3 border focus:border-pink-400 focus:ring-pink-400" />
+      </div>
+      <div>
+        <label class="block text-sm font-medium text-gray-700">Message</label>
+        <textarea rows="4" required class="mt-1 block w-full rounded-lg border-gray-300 p-3 border focus:border-pink-400 focus:ring-pink-400"></textarea>
+      </div>
+      <div class="pt-4">
+        <button type="submit" class="w-full cta-button">Send Message 💌</button>
+      </div>
+    </form>
+  </div>
+</section>
+
+</main>
+
+<!-- STICKY BUTTON -->
+<a href="https://www.fiverr.com/your-profile" target="_blank" class="fiverr-sticky cta-button text-sm px-6 py-2 shadow-2xl">⭐ Hire Me on Fiverr</a>
+
+<!-- FOOTER -->
+<footer class="bg-deepIndigo text-white mt-12 py-8">
+  <div class="container mx-auto px-4 text-center">
+    <img src="https://i.imgur.com/yvDfY9Y.png" alt="ChiRekha Footer Logo" class="footer-logo-img mx-auto mb-2 opacity-75" />
+    <p class="text-gray-400 text-sm">© 2025 ChiRekha | Created by Chintan Raval | Professional AI Writing & Creative Intelligence</p>
+  </div>
+</footer>
+
+<script>
+// Gemini API Configuration
+const apiKey = ""; // API key is provided at runtime
+const API_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent";
+
+/**
+ * Retries a fetch request with exponential backoff.
+ * @param {string} url The API URL.
+ * @param {object} options The fetch options (method, headers, body).
+ * @param {number} maxRetries The maximum number of retries.
+ * @returns {Promise<object>} The JSON response.
+ */
+async function generateContentWithRetry(url, options, maxRetries = 3) {
+    for (let i = 0; i < maxRetries; i++) {
+        try {
+            const response = await fetch(url, options);
+            if (response.ok) {
+                return await response.json();
+            } else if (response.status === 429 && i < maxRetries - 1) {
+                // Rate limit error (429), retry with backoff
+                const delay = Math.pow(2, i) * 1000 + Math.random() * 1000;
+                await new Promise(resolve => setTimeout(resolve, delay));
+            } else {
+                // Other errors
+                const errorBody = await response.text();
+                throw new Error(`API call failed: ${response.status} - ${errorBody}`);
+            }
+        } catch (error) {
+            if (i === maxRetries - 1) {
+                throw new Error(`Failed to fetch content after ${maxRetries} attempts: ${error.message}`);
+            }
+        }
+    }
+}
+
+/**
+ * Generates a personalized affirmation using the Gemini LLM.
+ */
+async function generateAffirmation() {
+    const inputElement = document.getElementById('goal-input');
+    const outputElement = document.getElementById('affirmation-output');
+    const button = document.getElementById('generate-affirmation-btn');
+    const buttonText = document.getElementById('btn-text');
+
+    const userGoal = inputElement.value.trim();
+
+    if (!userGoal) {
+        outputElement.innerHTML = `<span class="text-red-600">Please enter a goal or mood.</span>`;
+        return;
+    }
+
+    // UI State: Loading
+    button.disabled = true;
+    buttonText.textContent = 'Generating... ⏳';
+    outputElement.innerHTML = `<div class="text-gray-500">Connecting to Soul AI...</div>`;
+
+    try {
+        const systemPrompt = "You are ChiRekha, a Soulful AI Guide that fuses Vedic philosophy with modern psychology. Your task is to create one concise, powerful, high-vibration daily affirmation based on the user's input (goal or mood). The affirmation must be positive, present tense, and focus on self-empowerment and spiritual alignment.";
+        const userQuery = `Generate an affirmation for this goal/mood: "${userGoal}"`;
+
+        const payload = {
+            contents: [{ parts: [{ text: userQuery }] }],
+            systemInstruction: {
+                parts: [{ text: systemPrompt }]
+            },
+            config: {
+                // Set a low temperature for concise, focused output (as requested in the prompt)
+                temperature: 0.7 
+            }
+        };
+
+        const fullApiUrl = `${API_URL}?key=${apiKey}`;
+        const responseJson = await generateContentWithRetry(fullApiUrl, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
+        });
+
+        const generatedText = responseJson.candidates?.[0]?.content?.parts?.[0]?.text;
+
+        if (generatedText) {
+            outputElement.textContent = `“${generatedText.trim().replace(/['"“”]+/g, '')}”`;
+        } else {
+            outputElement.innerHTML = `<span class="text-red-600">❌ Generation failed. Try again or rephrase your goal.</span>`;
+            console.error("Gemini response was empty or malformed:", responseJson);
+        }
+
+    } catch (error) {
+        outputElement.innerHTML = `<span class="text-red-600">❌ Error: ${error.message}. Please check console for details.</span>`;
+        console.error("Affirmation Generation Error:", error);
+    } finally {
+        // UI State: Ready
+        button.disabled = false;
+        buttonText.textContent = 'Generate My Soul Affirmation ✨';
+    }
+}
+
+
+// SPA Navigation Logic (Existing)
+document.addEventListener('DOMContentLoaded', function() {
+  const navLinks = document.querySelectorAll('.nav-link');
+  const pages = document.querySelectorAll('.page-content');
+
+  function showPage(pageId) {
+    pages.forEach(page => page.style.display = 'none');
+    const targetPage = document.getElementById(pageId);
+    if (targetPage) targetPage.style.display = 'block';
+
+    navLinks.forEach(link => {
+      link.classList.remove('active');
+      if (link.getAttribute('data-page') === pageId) {
+        link.classList.add('active');
+      }
+    });
+  }
+
+  navLinks.forEach(link => {
+    link.addEventListener('click', function(e) {
+      const pageId = e.target.getAttribute('data-page');
+      showPage(pageId);
+    });
+  });
+
+  // Default to home page
+  showPage('page-home');
+});
+</script>
+
+</body>
+</html>
+
